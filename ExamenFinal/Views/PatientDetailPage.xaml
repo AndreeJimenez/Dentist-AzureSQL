@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ExamenFinal.Views.PatientDetailPage"
+             xmlns:converter="clr-namespace:ExamenFinal.Converters">
+        <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:ImageConverter x:Key="ImageConverter" />
+        </ResourceDictionary>
+        </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Delete" Command="{Binding DeleteCommand}" />
+        <ToolbarItem Text="Save" Command="{Binding SaveCommand}" />
+    </ContentPage.ToolbarItems>
+
+    
+        <ContentPage.Content>
+        
+        <ScrollView>
+            <StackLayout>
+                <ActivityIndicator
+                    IsRunning="{Binding IsBusy}"
+                    d:IsRunning="True" />
+                <Entry 
+                    Placeholder="Name" 
+                    Text="{Binding Name}"
+                    TextColor="#831514"/>
+                <Entry 
+                    Placeholder="Procedure" 
+                    Text="{Binding Process}"
+                    TextColor="#831514"/>
+                <Entry
+                    Placeholder="Latitude"
+                    Text="{Binding Latitude}"
+                    TextColor="#831514"/>
+                <Entry
+                    Placeholder="Longitude"
+                    Text="{Binding Longitude}"
+                    TextColor="#831514"/>
+                <Button 
+                    Text="Obtener ubicación" 
+                    Command="{Binding GetLocationCommand}"/>
+                <Image
+                    Source="{Binding PictureBase64, Converter={StaticResource ImageConverter}}"/>
+                <Button
+                    Text="Take Picture"
+                    Command="{Binding TakePictureCommand}"
+                    TextColor="White"
+                    BackgroundColor="#fbbebd"
+                    BorderColor="#faa4a3"
+                    BorderWidth="1"/>
+                <Button
+                    Text="Select Picture"
+                    Command="{Binding SelectPictureCommand}"
+                    TextColor="White"
+                    BackgroundColor="#fbbebd"
+                    BorderColor="#faa4a3"
+                    BorderWidth="1"/>
+                <Button
+                    Text="Add Date"
+                    Command="{Binding CreateDateCommand}"
+                    TextColor="White"
+                    BackgroundColor="#fbbebd"
+                    BorderColor="#faa4a3"
+                    BorderWidth="1"/>
+                <Button
+                    Text="My Dates"
+                    Command="{Binding GetDatesCommand}"
+                    TextColor="White"
+                    BackgroundColor="#fbbebd"
+                    BorderColor="#faa4a3"
+                    BorderWidth="1"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

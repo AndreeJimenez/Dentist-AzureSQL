@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converter="clr-namespace:ExamenFinal.Converters"
+             mc:Ignorable="d"
+             x:Class="ExamenFinal.Views.PatientItem">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="AddPatient" Command="{Binding AddCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:ImageConverter x:Key="ImageConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <RefreshView 
+        IsRefreshing="{Binding IsBusy}" 
+        Command="{Binding ExecuteLoadPatientsCommand}">
+            <CollectionView 
+            SelectionMode="Single"
+            ItemsSource="{Binding Patients}"
+            SelectedItem="{Binding PatientSelected}"
+            SelectionChangedCommand="{Binding SelectCommand}"
+            x:Name="ItemsCollectionView">
+                <d:CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>First Item</x:String>
+                        <x:String>Second Item</x:String>
+                        <x:String>Third Item</x:String>
+                        <x:String>Fourth Item</x:String>
+                        <x:String>Fifth Item</x:String>
+                        <x:String>Sixth Item</x:String>
+                    </x:Array>
+                </d:CollectionView.ItemsSource>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10">
+                            <Label 
+                            Text="{Binding Name}" 
+                            d:Text="Name"
+                            LineBreakMode="NoWrap" 
+                            HorizontalOptions="Center"
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+                            <Label 
+                            Text="{Binding Process}" 
+                            d:Text="Status"
+                            LineBreakMode="NoWrap"
+                            HorizontalOptions="Center"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                            <Image
+                            HorizontalOptions="Center"
+                            HeightRequest="200"
+                            Aspect="AspectFill"
+                            Source="{Binding PictureBase64, Converter={StaticResource ImageConverter}}"
+                            d:Source="not_found" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </ContentPage.Content>
+
+
+</ContentPage>

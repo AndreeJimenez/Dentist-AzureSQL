@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ExamenFinal.Views.DatesPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Command="{Binding SaveCommand}" />
+        <ToolbarItem Text="Delete" Command="{Binding DeleteCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <RefreshView 
+        IsRefreshing="{Binding IsBusy}" 
+        Command="{Binding ExecuteLoadDatesCommand}">
+            <CollectionView 
+                    SelectionMode="Single"
+                    ItemsSource="{Binding DateConsult}"
+                    SelectedItem="{Binding DateSelected}"
+                    SelectionChangedCommand="{Binding DateSelectCommand}">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10">
+                            <Label 
+                                    Text="{Binding DayDate}" 
+                                    d:Text="Date"
+                                    LineBreakMode="NoWrap" 
+                                    HorizontalOptions="Center"
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                            <Label 
+                                    Text="{Binding Cost}" 
+                                    d:Text="Cost"
+                                    LineBreakMode="NoWrap"
+                                    HorizontalOptions="Center"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="13" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>
