@@ -7,7 +7,18 @@
              mc:Ignorable="d"
              x:Class="ExamenFinal.Views.PatientItem">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="AddPatient" Command="{Binding AddCommand}" />
+        <ToolbarItem
+            Text="Add"
+            Command="{Binding AddCommand}">
+            <ToolbarItem.IconImageSource>
+                <OnPlatform
+                    x:TypeArguments="ImageSource">
+                    <On
+                        Platform="Android, UWP"
+                        Value="tooth.png"/>
+                </OnPlatform>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <ResourceDictionary>

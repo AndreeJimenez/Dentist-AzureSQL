@@ -6,7 +6,18 @@
              mc:Ignorable="d"
              x:Class="ExamenFinal.Views.DatesPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddDateCommand}" />
+        <ToolbarItem
+            Text="Add"
+            Command="{Binding AddDateCommand}">
+            <ToolbarItem.IconImageSource>
+                <OnPlatform
+                    x:TypeArguments="ImageSource">
+                    <On
+                        Platform="Android, UWP"
+                        Value="tooth.png"/>
+                </OnPlatform>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <RefreshView 
