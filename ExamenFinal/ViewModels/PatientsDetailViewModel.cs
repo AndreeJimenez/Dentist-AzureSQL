@@ -20,6 +20,9 @@ namespace ExamenFinal.ViewModels
 
         Command _deleteCommand;
         public Command DeleteCommand => _deleteCommand ?? (_deleteCommand = new Command(DeleteAction));
+        
+        Command _mapCommand;
+        public Command MapCommand => _mapCommand ?? (_mapCommand = new Command(MapAction));
 
         Command _GetLocationCommand;
         public Command GetLocationCommand => _GetLocationCommand ?? (_GetLocationCommand = new Command(GetLocationAction));
@@ -205,6 +208,19 @@ namespace ExamenFinal.ViewModels
             IsBusy = false;
             await Application.Current.MainPage.Navigation.PopAsync();
         }
+
+        /*private MapAction()
+        {
+            Application.Current.MainPage.Navigation.PushAsync(new DentistMapPage(new Patient
+            {
+                ID = PatientSelected.ID,
+                Name = PatientSelected.Name,
+                PictureBase64 = PatientSelected.PictureBase64,
+                Comments = PatientSelected.Comments,
+                Latitude = PatientSelected.Latitude,
+                Longitude = PatientSelected.Longitude,
+            }));
+        }*/
 
         private async void GetLocationAction()
         {

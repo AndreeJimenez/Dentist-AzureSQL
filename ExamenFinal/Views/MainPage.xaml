@@ -14,21 +14,35 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Image 
+                Grid.Row="0"
+                Grid.Column="0"
+                Source="boy.png"
+                HeightRequest="150"/>
             <Button
                 Grid.Row="0"
+                Grid.Column="1"
+                HeightRequest="150"
                 Text="Patients"
-                WidthRequest="460"
-                ImageSource="boy.png"
                 Command="{Binding PatientsCommand}"
                 TextColor="White"
                 BackgroundColor="#fbbebd"
                 BorderColor="#faa4a3"
                 BorderWidth="1"/>
+            <Image 
+                Grid.Row="1"
+                Grid.Column="0"
+                Source="medalAppointment2.png"
+                HeightRequest="150"/>
             <Button
                 Grid.Row="1"
+                Grid.Column="1"
                 Text="Dates"
-                WidthRequest="460"
-                ImageSource="medalAppointment2.png"
+                HeightRequest="150"
                 Command="{Binding DatesCommand}"
                 TextColor="White"
                 BackgroundColor="#fbbebd"
@@ -37,10 +51,11 @@
             <ImageButton 
                 Grid.Row="2"
                 HorizontalOptions="Center"
-                HeightRequest="50"
+                HeightRequest="80"
                 Aspect="AspectFill"
                 Source="teeth.png"
                 d:Source="not_found"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
+    
