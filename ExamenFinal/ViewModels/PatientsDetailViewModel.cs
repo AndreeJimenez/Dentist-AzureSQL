@@ -39,7 +39,13 @@ namespace ExamenFinal.ViewModels
         Command _GetDatesCommand;
         public Command GetDatesCommand => _GetDatesCommand ?? (_GetDatesCommand = new Command(GetDatesAction));
 
-        
+        Patient _PatientSelected;
+        public Patient PatientSelected
+        {
+            get => _PatientSelected;
+            set => SetProperty(ref _PatientSelected, value);
+        }
+
         int _ID;
         public int id
         {
@@ -113,7 +119,6 @@ namespace ExamenFinal.ViewModels
             set => SetProperty(ref _Cost, value);
         }
 
-
         public PatientsDetailViewModel() {}
 
         public PatientsDetailViewModel(Patient patient)
@@ -127,6 +132,7 @@ namespace ExamenFinal.ViewModels
                 Latitude = patient.Latitude;
                 Longitude = patient.Longitude;
             }
+            PatientSelected = patient;
         }
 
 
@@ -140,9 +146,8 @@ namespace ExamenFinal.ViewModels
                     Name = this.Name,
                     Process = this.Process,
                     PictureBase64 = this.PictureBase64,
-                   
-                        Latitude = this.Latitude,
-                        Longitude = this.Longitude
+                    Latitude = this.Latitude,
+                    Longitude = this.Longitude
                     
                 });
                 if (response == null)
@@ -165,9 +170,8 @@ namespace ExamenFinal.ViewModels
                     Name = this.Name,
                     Process = this.Process,
                     PictureBase64 = this.PictureBase64,
-                    
-                        Latitude = this.Latitude,
-                        Longitude = this.Longitude
+                    Latitude = this.Latitude,
+                    Longitude = this.Longitude
                     
                 });
                 if (response == null)
@@ -350,7 +354,7 @@ namespace ExamenFinal.ViewModels
 
         private void GetDatesAction()
         {
-            Application.Current.MainPage.Navigation.PushAsync(new DatesPage());
+            Application.Current.MainPage.Navigation.PushAsync(new DatesFromPatient(PatientSelected));
         }
     }
 }
