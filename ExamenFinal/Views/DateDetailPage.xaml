@@ -4,12 +4,32 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ExamenFinal.Views.DateDetailPage">
+             x:Class="ExamenFinal.Views.DateDetailPage"
+             Title="Date Detail">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Command="{Binding SaveCommand}" />
+        <ToolbarItem Text="Delete" Command="{Binding DeleteCommand}" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <ActivityIndicator
+                    IsRunning="{Binding IsBusy}"
+                    d:IsRunning="True" />
+                <!--<ComboBox 
+                    x:Name="PatientsComboBox" 
+                    Header="Patients" 
+                    Height="44" 
+                    Width="296" 
+                    ItemsSource="{x:Bind Patients}" 
+                    DisplayMemberPath="Source"/>-->
+                <Entry 
+                    Placeholder="Cost" 
+                    Text="{Binding Cost}"
+                    TextColor="#831514"/>
+                <DatePicker
+                    Date="{Binding DayDate}" />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

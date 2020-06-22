@@ -6,8 +6,7 @@
              mc:Ignorable="d"
              x:Class="ExamenFinal.Views.DatesPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save" Command="{Binding SaveCommand}" />
-        <ToolbarItem Text="Delete" Command="{Binding DeleteCommand}" />
+        <ToolbarItem Text="Add" Command="{Binding AddCommand}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <RefreshView 
