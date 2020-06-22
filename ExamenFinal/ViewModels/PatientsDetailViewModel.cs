@@ -209,18 +209,16 @@ namespace ExamenFinal.ViewModels
             await Application.Current.MainPage.Navigation.PopAsync();
         }
 
-        /*private MapAction()
+        private void MapAction()
         {
             Application.Current.MainPage.Navigation.PushAsync(new DentistMapPage(new Patient
             {
-                ID = PatientSelected.ID,
-                Name = PatientSelected.Name,
-                PictureBase64 = PatientSelected.PictureBase64,
-                Comments = PatientSelected.Comments,
-                Latitude = PatientSelected.Latitude,
-                Longitude = PatientSelected.Longitude,
+                Name = Name,
+                PictureBase64 = PictureBase64,
+                Latitude = Latitude,
+                Longitude = Longitude
             }));
-        }*/
+        }
 
         private async void GetLocationAction()
         {

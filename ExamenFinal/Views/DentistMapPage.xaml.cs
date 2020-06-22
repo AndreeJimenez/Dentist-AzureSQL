@@ -5,8 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Xamarin.Forms.Maps;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ExamenFinal.Services;
 
 namespace ExamenFinal.Views
 {
@@ -23,9 +25,9 @@ namespace ExamenFinal.Views
                     Distance.FromMiles(.5)
             ));
 
-            string imagePath = new ImageService().SaveImageFromBase64(patientSelected.ImageBase64, patientSelected.ID);
-            patientSelected.ImageBase64 = imagePath;
-            MapDentist.Pet = patientSelected;
+            string imagePath = new ImageService().SaveImageFromBase64(patientSelected.PictureBase64);
+            patientSelected.PictureBase64 = imagePath;
+            MapDentist.Patient = patientSelected;
 
             MapDentist.Pins.Add(
                 new Pin
@@ -37,7 +39,6 @@ namespace ExamenFinal.Views
             );
 
             Name.Text = patientSelected.Name;
-            PictureBase64.Text = patientSelected.PictureBase64;
         }
     }
 }
