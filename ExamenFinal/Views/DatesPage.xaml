@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="ExamenFinal.Views.DatesPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddCommand}" />
+        <ToolbarItem Text="Add" Command="{Binding AddDateCommand}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <RefreshView 

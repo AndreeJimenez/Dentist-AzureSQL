@@ -40,7 +40,6 @@ namespace ExamenFinal.ViewModels
         public PatientsViewModel()
         {
             _instance = this;
-            Title = "Patients";
             Patients = new ObservableCollection<Patient>();
             LoadPatientsCommand = new Command(ExecuteLoadPatientsCommand);
 

@@ -8,6 +8,11 @@ using Xamarin.Forms;
 namespace ExamenFinal.ViewModels
 {
     class DateDetailViewModel : BaseViewModel {
+        Command _saveCommand;
+        public Command SaveCommand => _saveCommand ?? (_saveCommand = new Command(SaveAction));
+
+        Command _deleteCommand;
+        public Command DeleteCommand => _deleteCommand ?? (_deleteCommand = new Command(DeleteAction));
 
         int _ID;
         public int id
@@ -18,7 +23,6 @@ namespace ExamenFinal.ViewModels
 
         public DateTime _DayDate;
         public DateTime DayDate
-
         {
             get => _DayDate;
             set => SetProperty(ref _DayDate, value);
@@ -26,24 +30,20 @@ namespace ExamenFinal.ViewModels
 
         public float _Cost;
         public float Cost
-
         {
             get => _Cost;
             set => SetProperty(ref _Cost, value);
         }
 
-        Command _saveCommand;
-        public Command SaveCommand => _saveCommand ?? (_saveCommand = new Command(SaveAction));
-
-        Command _deleteCommand;
-        public Command DeleteCommand => _deleteCommand ?? (_deleteCommand = new Command(DeleteAction));
-
-        public DateDetailViewModel() {}
+        public DateDetailViewModel() {
+            DayDate = DateTime.Today;
+        }
 
         public DateDetailViewModel(DateConsult date)
         {
             if (date != null)
             {
+                id = date.IdDate;
                 DayDate = date.DayDate;
                 Cost = date.Cost;
             }
@@ -93,7 +93,7 @@ namespace ExamenFinal.ViewModels
                 await Application.Current.MainPage.DisplayAlert("ExamenFinal", response.Message, "Ok");
             }
             IsBusy = false;
-            PatientsViewModel.GetInstance().ExecuteLoadPatientsCommand();
+            DateViewModel.GetInstance().ExecuteLoadDatesCommand();
             await Application.Current.MainPage.Navigation.PopAsync();
         }
 
@@ -116,6 +116,7 @@ namespace ExamenFinal.ViewModels
             await Application.Current.MainPage.DisplayAlert("ExamenFinal", response.Message, "Ok");
 
             IsBusy = false;
+            DateViewModel.GetInstance().ExecuteLoadDatesCommand();
             await Application.Current.MainPage.Navigation.PopAsync();
         }
     }  
