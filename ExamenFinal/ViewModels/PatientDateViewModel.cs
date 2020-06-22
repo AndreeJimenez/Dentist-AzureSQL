@@ -13,6 +13,8 @@ namespace ExamenFinal.ViewModels
 {
     public class PatientDateViewModel : BaseViewModel
     {
+        static PatientDateViewModel _instance;
+
         Command _DateSelectCommand;
         public Command DateSelectCommand => _DateSelectCommand ?? (_DateSelectCommand = new Command(DateSelectAction));
 
@@ -51,22 +53,51 @@ namespace ExamenFinal.ViewModels
             set => SetProperty(ref _DateSelected, value);
         }
 
-        public PatientDateViewModel() { }
-
-        public PatientDateViewModel(DatePatient dp)
+        public Command LoadDatesCommand { get; set; }
+        public PatientDateViewModel() 
         {
-            if (dp != null)
-            {
-                IDDate = dp.IdDate;
-                IDPatient = dp.IdPatient;
-            }
+            _instance = this;
+            Title = "Dates from Patient";
+            DateConsult = new ObservableCollection<DateConsult>();
+            LoadDatesCommand = new Command(ExecuteLoadDatesPatCommand);
+
+            ExecuteLoadDatesPatCommand();
         }
 
-        public async void GetListOrderProducts()
+        public PatientDateViewModel(Patient patient)
+        {
+            IDPatient = patient.IdPatient;
+        }
+
+        public async void ExecuteLoadDatesPatCommand()
         {
             try
             {
-                ApiResponse response = await new ApiService().GetListDataAsyncByID<DateConsult>("DatePatient", IDDate);
+                IsBusy = true;
+                ApiResponse response = await new ApiService().GetListDataAsyncByID<Patient>("DatePatient", IDPatient);
+                if (response != null && response.Result != null)
+                {
+                    Debug.WriteLine("response.result: " + response.Result.ToString());
+                    DateConsult = (ObservableCollection<DateConsult>)response.Result;
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Citas del Paciente", "No cuenta con ninguna cita", "Ok");
+                    await Application.Current.MainPage.Navigation.PopAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+            /*
+            try
+            {
+                ApiResponse response = await new ApiService().GetListDataAsyncByID<DateConsult>("DatePatient", IDPatient);
                 if (response != null || response.Result != null)
                 {
                     DateConsult = (ObservableCollection<DateConsult>)response.Result;
@@ -85,7 +116,7 @@ namespace ExamenFinal.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
-            }
+            }*/
         }
         private void DateSelectAction()
         {

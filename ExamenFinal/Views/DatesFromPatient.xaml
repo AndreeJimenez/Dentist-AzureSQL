@@ -4,15 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ExamenFinal.Views.DatesFromPatient">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save" Command="{Binding SaveCommand}" />
-        <ToolbarItem Text="Delete" Command="{Binding DeleteCommand}" />
-    </ContentPage.ToolbarItems>
+             x:Class="ExamenFinal.Views.DatesFromPatient"
+             Title="{Binding Title}">
     <ContentPage.Content>
         <RefreshView 
         IsRefreshing="{Binding IsBusy}" 
-        Command="{Binding ExecuteLoadDatesCommand}">
+        Command="{Binding ExecuteLoadDatesPatCommand}">
             <CollectionView 
                     SelectionMode="Single"
                     ItemsSource="{Binding DateConsult}"
@@ -20,7 +17,7 @@
                     SelectionChangedCommand="{Binding DateSelectCommand}">
 
                 <CollectionView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate >
                         <StackLayout Padding="10">
                             <Label 
                                     Text="{Binding DayDate}" 
