@@ -15,30 +15,21 @@ namespace ExamenFinal.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DentistMapPage : ContentPage
     {
-        public DentistMapPage(Patient patientSelected)
+        public DentistMapPage(Patient patient)
         {
             InitializeComponent();
 
             MapDentist.MoveToRegion(
                 MapSpan.FromCenterAndRadius(
-                    new Position(patientSelected.Latitude, patientSelected.Longitude),
+                    new Position(patient.Latitude, patient.Longitude),
                     Distance.FromMiles(.5)
             ));
 
-            string imagePath = new ImageService().SaveImageFromBase64(patientSelected.PictureBase64);
-            patientSelected.PictureBase64 = imagePath;
-            MapDentist.Patient = patientSelected;
+            string imagePath = new ImageService().SaveImageFromBase64(patient.PictureBase64);
+            patient.PictureBase64 = imagePath;
+            MapDentist.patient = patient;
 
-            MapDentist.Pins.Add(
-                new Pin
-                {
-                    Type = PinType.Place,
-                    Label = patientSelected.Name,
-                    Position = new Position(patientSelected.Latitude, patientSelected.Longitude)
-                }
-            );
-
-            Name.Text = patientSelected.Name;
+            Name.Text = patient.Name;
         }
     }
 }

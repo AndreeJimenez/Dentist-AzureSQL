@@ -27,7 +27,7 @@ namespace ExamenFinal.Droid.Renders
 
             if (e.NewElement != null)
             {
-                Patient = ((CustomMap)e.NewElement).Patient;
+                Patient = ((CustomMap)e.NewElement).patient;
             }
         }
 
@@ -43,7 +43,7 @@ namespace ExamenFinal.Droid.Renders
             //return base.CreateMarker(pin);
             var marker = new MarkerOptions();
             marker.SetPosition(new LatLng(Patient.Latitude, Patient.Longitude));
-            marker.SetName(Patient.Name);
+            marker.SetTitle(Patient.Name);
             return marker;
         }
 

@@ -8,6 +8,6 @@ namespace ExamenFinal.Renders
 {
     public class CustomMap : Map
     {
-        public Patient Patient;
+        public Patient patient;
     }
 }
