@@ -53,6 +53,12 @@ namespace ExamenFinal.ViewModels
             set => SetProperty(ref _DateSelected, value);
         }
 
+        public static PatientDateViewModel GetInstance()
+        {
+            if (_instance == null) _instance = new PatientDateViewModel();
+            return _instance;
+        }
+
         public Command LoadDatesCommand { get; set; }
         public PatientDateViewModel() 
         {
@@ -74,7 +80,7 @@ namespace ExamenFinal.ViewModels
             try
             {
                 IsBusy = true;
-                ApiResponse response = await new ApiService().GetListDataAsyncByID<Patient>("DatePatient", IDPatient);
+                ApiResponse response = await new ApiService().GetListDataAsyncByID<DateConsult>("DatePatient", IDPatient);
                 if (response != null && response.Result != null)
                 {
                     Debug.WriteLine("response.result: " + response.Result.ToString());
@@ -94,29 +100,6 @@ namespace ExamenFinal.ViewModels
             {
                 IsBusy = false;
             }
-            /*
-            try
-            {
-                ApiResponse response = await new ApiService().GetListDataAsyncByID<DateConsult>("DatePatient", IDPatient);
-                if (response != null || response.Result != null)
-                {
-                    DateConsult = (ObservableCollection<DateConsult>)response.Result;
-                    if (response.Result != null)
-                    {
-                        DateConsultonPatient = DateConsult.ToList();
-                    }
-                    else
-                    {
-                        await Application.Current.MainPage.DisplayAlert("Citas del Paciente", "No cuenta con ninguna cita", "Ok");
-                        await Application.Current.MainPage.Navigation.PopAsync();
-                    }
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }*/
         }
         private void DateSelectAction()
         {

@@ -355,6 +355,7 @@ namespace ExamenFinal.ViewModels
         private void GetDatesAction()
         {
             Application.Current.MainPage.Navigation.PushAsync(new DatesFromPatient(PatientSelected));
+            PatientDateViewModel.GetInstance().ExecuteLoadDatesPatCommand();
         }
     }
 }
