@@ -38,39 +38,43 @@
             x:Name="ItemsCollectionView">
                 <CollectionView.ItemTemplate >
                     <DataTemplate >
-                        <StackLayout Padding="10" >
-                            <Grid BackgroundColor="#85d0b5"  Padding="10">
+                        <StackLayout >
+                            <Grid BackgroundColor="#85d0b5"  Padding="5" Margin="5">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*" />
-                                    <ColumnDefinition Width="1.5*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="3*" />
                                 </Grid.ColumnDefinitions>
-                                <Label
-                                    Grid.Column="1"
-                                    Text="{Binding Name}" 
-                                    d:Text="Name"
-                                    LineBreakMode="NoWrap" 
-                                    HorizontalOptions="Center"
-                                    Style="{DynamicResource ListItemTextStyle}" 
-                                    FontSize="16" />
-                                <Label
-                                    Grid.Column="1"
-                                    Margin="20"
-                                    Padding="50"      
-                                    Text="{Binding Process}" 
-                                    d:Text="Status"
-                                    LineBreakMode="NoWrap"
-                                    HorizontalOptions="Center"
-                                    Style="{DynamicResource ListItemDetailTextStyle}"
-                                    FontSize="13" />
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
                                 <Image
                                     Grid.Column="0"
+                                    Grid.RowSpan="3"
                                     Margin="10"
                                     WidthRequest="200"
-                                    Aspect="AspectFit"
                                     HorizontalOptions="Start"
                                     HeightRequest="200"
                                     Source="{Binding PictureBase64, Converter={StaticResource ImageConverter}}"
                                     d:Source="not_found" />
+                                <Label
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    Text="{Binding Name}" 
+                                    d:Text="Name"
+                                    HorizontalOptions="Center"
+                                    FontAttributes="Bold"
+                                    FontSize="16" />
+                                <Label
+                                    Grid.Column="1"
+                                    Grid.Row="2"
+                                    Margin="20"
+                                    Padding="50"      
+                                    Text="{Binding Process}" 
+                                    d:Text="Status"
+                                    HorizontalOptions="Center"
+                                    FontSize="13" />
                             </Grid>
                         </StackLayout>
                     </DataTemplate>
