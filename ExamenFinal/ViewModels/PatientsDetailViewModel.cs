@@ -209,15 +209,21 @@ namespace ExamenFinal.ViewModels
             await Application.Current.MainPage.Navigation.PopAsync();
         }
 
-        private void MapAction()
+        private async void MapAction()
         {
-            Application.Current.MainPage.Navigation.PushAsync(new DentistMapPage(new Patient
+            if(Latitude != 0 && Longitude != 0)
             {
-                Name = Name,
-                PictureBase64 = PictureBase64,
-                Latitude = Latitude,
-                Longitude = Longitude
-            }));
+                await Application.Current.MainPage.Navigation.PushAsync(new DentistMapPage(new Patient
+                {
+                    Name = Name,
+                    PictureBase64 = PictureBase64,
+                    Latitude = Latitude,
+                    Longitude = Longitude
+                }));
+            } else
+            {
+                await Application.Current.MainPage.DisplayAlert("Map", "Please enter valid coordinates", "Ok");
+            }
         }
 
         private async void GetLocationAction()
