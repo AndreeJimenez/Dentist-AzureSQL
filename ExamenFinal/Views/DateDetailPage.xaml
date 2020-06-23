@@ -7,6 +7,20 @@
              x:Class="ExamenFinal.Views.DateDetailPage"
              Title="Date Detail">
     <ContentPage.ToolbarItems>
+
+        <ToolbarItem 
+            
+            Text="Add Date"
+            Command="{Binding AddDateCommand}">
+            <ToolbarItem.IconImageSource>
+                <OnPlatform
+                    x:TypeArguments="ImageSource">
+                    <On
+                        Platform="Android, UWP"
+                        Value="boy.png"/>
+                </OnPlatform>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
         <ToolbarItem 
             
             Text="Delete"
@@ -40,8 +54,7 @@
             <StackLayout>
                 <ActivityIndicator
                     IsRunning="{Binding IsBusy}"
-                    d:IsRunning="True" />
-               
+                    d:IsRunning="True" />               
                 <Entry 
                     Placeholder="Cost" 
                     Text="{Binding Cost}"

@@ -1,15 +1,21 @@
 ﻿using ExamenFinal.Models;
 using ExamenFinal.Services;
+using ExamenFinal.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using Xamarin.Forms;
 
 namespace ExamenFinal.ViewModels
 {
-    class DateDetailViewModel : BaseViewModel {
+    public class DateDetailViewModel : BaseViewModel 
+    {
         Command _saveCommand;
         public Command SaveCommand => _saveCommand ?? (_saveCommand = new Command(SaveAction));
+
+        Command _AddDateCommand;
+        public Command AddDateCommand => _AddDateCommand ?? (_AddDateCommand = new Command(CreateDateAction));
 
         Command _deleteCommand;
         public Command DeleteCommand => _deleteCommand ?? (_deleteCommand = new Command(DeleteAction));
@@ -35,6 +41,13 @@ namespace ExamenFinal.ViewModels
             set => SetProperty(ref _Cost, value);
         }
 
+        DateConsult _DateToAdd;
+        public DateConsult DateToAdd
+        {
+            get => _DateToAdd;
+            set => SetProperty(ref _DateToAdd, value);
+        }
+
         public DateDetailViewModel() {
             DayDate = DateTime.Today;
         }
@@ -47,6 +60,7 @@ namespace ExamenFinal.ViewModels
                 DayDate = date.DayDate;
                 Cost = date.Cost;
             }
+            DateToAdd = date;
         }
 
         private async void SaveAction()
@@ -118,6 +132,11 @@ namespace ExamenFinal.ViewModels
             IsBusy = false;
             DateViewModel.GetInstance().ExecuteLoadDatesCommand();
             await Application.Current.MainPage.Navigation.PopAsync();
+        }
+
+        private async void CreateDateAction()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new PatientItem(DateToAdd));
         }
     }  
 }

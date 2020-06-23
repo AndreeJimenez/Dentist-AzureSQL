@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace ExamenFinal.Services
 {
-    class ImageService
+    public class ImageService
     {
         const int DownloadImageTimeoutSeconds = 15;
 

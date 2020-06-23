@@ -27,5 +27,10 @@ namespace ExamenFinal.Views
 
             BindingContext = new DateDetailViewModel(dateConsult);
         }
+
+        /*private void Picker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }*/
     }
 }

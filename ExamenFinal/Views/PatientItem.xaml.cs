@@ -1,4 +1,5 @@
-﻿using ExamenFinal.ViewModels;
+﻿using ExamenFinal.Models;
+using ExamenFinal.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,13 @@ namespace ExamenFinal.Views
             InitializeComponent();
             BindingContext = vista = new PatientsViewModel(); 
         
+        }
+        public PatientItem(DateConsult dateToAdd)
+        {
+
+            InitializeComponent();
+            BindingContext = new PatientsViewModel(dateToAdd);
+
         }
     }
 }

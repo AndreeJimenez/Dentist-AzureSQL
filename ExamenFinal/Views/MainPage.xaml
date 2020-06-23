@@ -41,8 +41,7 @@
                 Grid.Column="0"
                 Source="medalAppointment2.png"
                 HeightRequest="150"/>
-            
-             <Button
+            <Button
               CornerRadius="5"
                 Text="Dates"
                 HeightRequest="150"
@@ -53,7 +52,6 @@
                  BorderColor="#faa4a3"
                 Grid.Column="1"
                  BorderWidth="3"/>
-            
             <ImageButton 
                 Grid.Row="2"
                 HorizontalOptions="Center"

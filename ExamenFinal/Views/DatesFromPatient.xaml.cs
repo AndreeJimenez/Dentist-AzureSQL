@@ -14,12 +14,12 @@ namespace ExamenFinal.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DatesFromPatient : ContentPage
     {
-        public DatesFromPatient()
+        /*public DatesFromPatient()
         {
             InitializeComponent();
 
             BindingContext = new PatientDateViewModel();
-        }
+        }*/
 
         public DatesFromPatient(Patient PatienteSelected)
         {

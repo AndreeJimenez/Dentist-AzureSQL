@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace ExamenFinal.ViewModels
 {
-    class PatientsDetailViewModel:BaseViewModel
+    public class PatientsDetailViewModel:BaseViewModel
     {
         Command _saveCommand;
         public Command SaveCommand => _saveCommand ?? (_saveCommand = new Command(SaveAction));
@@ -32,9 +32,6 @@ namespace ExamenFinal.ViewModels
 
         Command _SelectPictureCommand;
         public Command SelectPictureCommand => _SelectPictureCommand ?? (_SelectPictureCommand = new Command(SelectPictureAction));
-
-        Command _CreateDateCommand;
-        public Command CreateDateCommand => _CreateDateCommand ?? (_CreateDateCommand = new Command(CreateDateAction));
 
         Command _GetDatesCommand;
         public Command GetDatesCommand => _GetDatesCommand ?? (_GetDatesCommand = new Command(GetDatesAction));
@@ -303,58 +300,10 @@ namespace ExamenFinal.ViewModels
             });
         }
 
-        private async void CreateDateAction()
-        {
-            IsBusy = true;
-            if (id == 0)
-            {
-                ApiResponse response = await new ApiService().PostDataAsync("dates", new DateConsult
-                {
-                    DayDate = this.DayDate,
-                    Cost = this.Cost
-                });
-                if (response == null)
-                {
-                    await Application.Current.MainPage.DisplayAlert("ExamenFinal", "Error creating date", "Ok");
-                    return;
-                }
-                if (!response.IsSuccess)
-                {
-                    await Application.Current.MainPage.DisplayAlert("ExamenFinal", response.Message, "Ok");
-                    return;
-                }
-                PatientsViewModel.GetInstance().ExecuteLoadPatientsCommand();
-                await Application.Current.MainPage.DisplayAlert("ExamenFinal", response.Message, "Ok");
-            }
-            else
-            {
-                ApiResponse response = await new ApiService().PutDataAsync("dates", this.id, new DateConsult
-                {
-                    DayDate = this.DayDate,
-                    Cost = this.Cost
-
-                });
-                if (response == null)
-                {
-                    await Application.Current.MainPage.DisplayAlert("ExamenFinal", "Error updating date", "Ok");
-                    return;
-                }
-                if (!response.IsSuccess)
-                {
-                    await Application.Current.MainPage.DisplayAlert("ExamenFinal", response.Message, "Ok");
-                    return;
-                }
-                await Application.Current.MainPage.DisplayAlert("ExamenFinal", response.Message, "Ok");
-            }
-            IsBusy = false;
-            PatientsViewModel.GetInstance().ExecuteLoadPatientsCommand();
-            await Application.Current.MainPage.Navigation.PopAsync();
-        }
 
         private void GetDatesAction()
         {
             Application.Current.MainPage.Navigation.PushAsync(new DatesFromPatient(PatientSelected));
-            PatientDateViewModel.GetInstance().ExecuteLoadDatesPatCommand();
         }
     }
 }

@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace ExamenFinal.ViewModels
 {
-    class PatientsViewModel:BaseViewModel
+    public class PatientsViewModel:BaseViewModel
     {
         static PatientsViewModel _instance;
 
@@ -35,6 +35,21 @@ namespace ExamenFinal.ViewModels
             set => SetProperty(ref patients, value);
         }
 
+        DateConsult _DateToAddP;
+        public DateConsult DateToAddP
+        {
+            get => _DateToAddP;
+            set => SetProperty(ref _DateToAddP, value);
+        }
+
+        public PatientsViewModel(DateConsult date)
+        {
+            DateToAddP = date;
+
+            LoadPatientsCommand = new Command(ExecuteLoadPatientsCommand);
+            ExecuteLoadPatientsCommand();
+        }
+
         public Command LoadPatientsCommand { get; set; }
 
         public PatientsViewModel()
@@ -45,6 +60,7 @@ namespace ExamenFinal.ViewModels
 
             ExecuteLoadPatientsCommand();
         }
+
 
         public static PatientsViewModel GetInstance()
         {
@@ -59,7 +75,15 @@ namespace ExamenFinal.ViewModels
 
         private void SelectAction()
         {
-            Application.Current.MainPage.Navigation.PushAsync(new PatientDetailPage(PatientSelected));
+            if(DateToAddP != null)
+            {
+                Application.Current.MainPage.DisplayAlert("AppDentist", "¿Está seguro?", "Sí");
+                AddDateToPatient();
+            }
+            else
+            {
+                Application.Current.MainPage.Navigation.PushAsync(new PatientDetailPage(PatientSelected));
+            }
         }
 
         public async void ExecuteLoadPatientsCommand()
@@ -67,9 +91,9 @@ namespace ExamenFinal.ViewModels
             try
             {
                 IsBusy = true;
-                Patients.Clear();
+                //Patients.Clear();
                 ApiResponse response = await new ApiService().GetDataAsync<Patient>("patient"); //DataStore.GetItemsAsync(true);
-                if (response != null && response.Result != null)
+                if (response != null && response.Result != null )
                 {
                     Debug.WriteLine("response.result: " + response.Result.ToString());
                     Patients = (ObservableCollection<Patient>)response.Result;
@@ -82,6 +106,35 @@ namespace ExamenFinal.ViewModels
             finally
             {
                 IsBusy = false;
+            }
+        }
+
+        public async void AddDateToPatient()
+        {
+            try
+            {
+                ApiResponse response = await new ApiService().PostDataAsync("DatePatient", new DatePatient
+                {
+                    IdDate = DateToAddP.IdDate,
+                    IdPatient = patientSelected.IdPatient
+                });
+                if (response == null)
+                {
+                    await Application.Current.MainPage.DisplayAlert("AppDentist", "Error asigning date to patient", "Ok");
+                    return;
+                }
+                if (!response.IsSuccess)
+                {
+                    await Application.Current.MainPage.DisplayAlert("AppDentist", response.Message, "Ok");
+                    return;
+                }
+                PatientsViewModel.GetInstance().ExecuteLoadPatientsCommand();
+                await Application.Current.MainPage.DisplayAlert("AppDentist", response.Message, "Ok");
+            }
+
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
         }
     }

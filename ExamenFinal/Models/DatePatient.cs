@@ -6,8 +6,8 @@ namespace ExamenFinal.Models
 {
     public class DatePatient
     {
-        public int IdDate;
+        public int IdDate { get; set; }
 
-        public int IdPatient;
+        public int IdPatient { get; set; }
     }
 }

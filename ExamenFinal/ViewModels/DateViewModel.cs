@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace ExamenFinal.ViewModels
 {
-    class DateViewModel : BaseViewModel
+    public class DateViewModel : BaseViewModel
     {
         static DateViewModel _instance;
 

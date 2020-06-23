@@ -20,7 +20,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate >
                         <StackLayout Padding="10">
-                                        <Label 
+                            <Label 
                                     Text="{Binding DayDate}" 
                                     d:Text="Date"
                                     LineBreakMode="NoWrap" 

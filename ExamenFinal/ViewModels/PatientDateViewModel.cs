@@ -13,7 +13,9 @@ namespace ExamenFinal.ViewModels
 {
     public class PatientDateViewModel : BaseViewModel
     {
-        static PatientDateViewModel _instance;
+
+        Command _ExecuteLoadDatesPatCommand;
+        public Command ExecuteLoadDatesPatCommand => _ExecuteLoadDatesPatCommand ?? (_ExecuteLoadDatesPatCommand = new Command(LoadDatesPatCommand));
 
         Command _DateSelectCommand;
         public Command DateSelectCommand => _DateSelectCommand ?? (_DateSelectCommand = new Command(DateSelectAction));
@@ -39,44 +41,26 @@ namespace ExamenFinal.ViewModels
             set => SetProperty(ref _DateConsult, value);
         }
 
-        List<DateConsult> _DateConsultonPatient;
-        public List<DateConsult> DateConsultonPatient
-        {
-            get => _DateConsultonPatient;
-            set => SetProperty(ref _DateConsultonPatient, value);
-        }
-
         DateConsult _DateSelected;
         public DateConsult DateSelected
         {
             get => _DateSelected;
             set => SetProperty(ref _DateSelected, value);
         }
-
-        public Command LoadDatesPatCommand { get; set; }
+        
         public PatientDateViewModel() 
         {
-            _instance = this;
             Title = "Dates from Patient";
             DateConsult = new ObservableCollection<DateConsult>();
-            LoadDatesPatCommand = new Command(ExecuteLoadDatesPatCommand);
-
-            ExecuteLoadDatesPatCommand();
+            LoadDatesPatCommand();
         }
-
-        public static PatientDateViewModel GetInstance()
-        {
-            if (_instance == null) _instance = new PatientDateViewModel();
-           
-            return _instance;
-        }
-
         public PatientDateViewModel(Patient patient)
         {
             IDPatient = patient.IdPatient;
+            LoadDatesPatCommand();
         }
 
-        public async void ExecuteLoadDatesPatCommand()
+        public async void LoadDatesPatCommand()
         {
             try
             {

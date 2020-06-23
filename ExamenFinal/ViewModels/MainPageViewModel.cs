@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace ExamenFinal.ViewModels
 {
-    class MainPageViewModel
+    public class MainPageViewModel
     {
         Command _PatientsCommand;
         public Command PatientsCommand => _PatientsCommand ?? (_PatientsCommand = new Command(PatientsAction));

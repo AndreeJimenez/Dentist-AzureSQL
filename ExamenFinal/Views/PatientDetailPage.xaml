@@ -104,14 +104,6 @@
                     BorderWidth="1"/>
                 <Button
                     CornerRadius="5"
-                    Text="Add Date"
-                    Command="{Binding CreateDateCommand}"
-                    TextColor="White"
-                    BackgroundColor="#fbbebd"
-                    BorderColor="#faa4a3"
-                    BorderWidth="1"/>
-                <Button
-                    CornerRadius="5"
                     Text="My Dates"
                     Command="{Binding GetDatesCommand}"
                     TextColor="White"
