@@ -135,7 +135,6 @@ namespace ExamenFinal.ViewModels
             PatientSelected = patient;
         }
 
-
         private async void SaveAction()
         {
             IsBusy = true;

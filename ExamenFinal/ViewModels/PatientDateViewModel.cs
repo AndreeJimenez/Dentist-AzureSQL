@@ -53,43 +53,22 @@ namespace ExamenFinal.ViewModels
             set => SetProperty(ref _DateSelected, value);
         }
 
-        public Command LoadDatesCommand { get; set; }
+        public Command LoadDatesPatCommand { get; set; }
         public PatientDateViewModel() 
         {
             _instance = this;
             Title = "Dates from Patient";
             DateConsult = new ObservableCollection<DateConsult>();
-            LoadDatesCommand = new Command(ExecuteLoadDatesPatCommand);
+            LoadDatesPatCommand = new Command(ExecuteLoadDatesPatCommand);
 
             ExecuteLoadDatesPatCommand();
-        }
-        public static PatientDateViewModel GetInstance()
-        {
-            if (_instance == null) _instance = new PatientDateViewModel();
-            return _instance;
-        }
-
-        public PatientDateViewModel(Patient patient)
-        {
-            IDPatient = patient.IdPatient;
-            
         }
 
         public static PatientDateViewModel GetInstance()
         {
             if (_instance == null) _instance = new PatientDateViewModel();
+           
             return _instance;
-        }
-
-        public Command LoadDatesCommand { get; set; }
-        public PatientDateViewModel() 
-        {
-            _instance = this;
-            Title = "Dates from Patient";
-            DateConsult = new ObservableCollection<DateConsult>();
-            LoadDatesCommand = new Command(ExecuteLoadDatesPatCommand);
-
-            ExecuteLoadDatesPatCommand();
         }
 
         public PatientDateViewModel(Patient patient)
