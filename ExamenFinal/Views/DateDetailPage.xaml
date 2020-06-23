@@ -7,7 +7,8 @@
              x:Class="ExamenFinal.Views.DateDetailPage"
              Title="Date Detail">
     <ContentPage.ToolbarItems>
-        <ToolbarItem
+        <ToolbarItem 
+            
             Text="Delete"
             Command="{Binding DeleteCommand}">
             <ToolbarItem.IconImageSource>
@@ -22,8 +23,10 @@
         <ToolbarItem
             Text="Save"
             Command="{Binding SaveCommand}">
-            <ToolbarItem.IconImageSource>
+            <ToolbarItem.IconImageSource 
+                >
                 <OnPlatform
+                   
                     x:TypeArguments="ImageSource">
                     <On
                         Platform="Android, UWP"
@@ -38,13 +41,7 @@
                 <ActivityIndicator
                     IsRunning="{Binding IsBusy}"
                     d:IsRunning="True" />
-                <!--<ComboBox 
-                    x:Name="PatientsComboBox" 
-                    Header="Patients" 
-                    Height="44" 
-                    Width="296" 
-                    ItemsSource="{x:Bind Patients}" 
-                    DisplayMemberPath="Source"/>-->
+               
                 <Entry 
                     Placeholder="Cost" 
                     Text="{Binding Cost}"

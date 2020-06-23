@@ -31,22 +31,26 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="10">
-                            <Label 
+                        <Grid BackgroundColor="#85d0b5" Padding="30">
+                            <StackLayout  >
+                                <Label 
+                                   
                                     Text="{Binding DayDate}" 
                                     d:Text="Date"
                                     LineBreakMode="NoWrap" 
                                     HorizontalOptions="Center"
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                            <Label 
+                                <Label
+                                    
                                     Text="{Binding Cost}" 
                                     d:Text="Cost"
                                     LineBreakMode="NoWrap"
                                     HorizontalOptions="Center"
                                     Style="{DynamicResource ListItemDetailTextStyle}"
                                     FontSize="13" />
-                        </StackLayout>
+                            </StackLayout>
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

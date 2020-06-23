@@ -62,7 +62,8 @@
                 <Entry 
                     Placeholder="Name" 
                     Text="{Binding Name}"
-                    TextColor="#831514"/>
+                    TextColor="#831514"
+                    />
                 <Entry 
                     Placeholder="Procedure" 
                     Text="{Binding Process}"
@@ -76,11 +77,17 @@
                     Text="{Binding Longitude}"
                     TextColor="#831514"/>
                 <Button 
+                    CornerRadius="5"
                     Text="Obtener ubicación" 
+                    TextColor="White"
+                    BackgroundColor="#fbbebd"
+                    BorderColor="#faa4a3"
+                    BorderWidth="1"
                     Command="{Binding GetLocationCommand}"/>
                 <Image
                     Source="{Binding PictureBase64, Converter={StaticResource ImageConverter}}"/>
                 <Button
+                    CornerRadius="5"
                     Text="Take Picture"
                     Command="{Binding TakePictureCommand}"
                     TextColor="White"
@@ -88,6 +95,7 @@
                     BorderColor="#faa4a3"
                     BorderWidth="1"/>
                 <Button
+                    CornerRadius="5"
                     Text="Select Picture"
                     Command="{Binding SelectPictureCommand}"
                     TextColor="White"
@@ -95,6 +103,7 @@
                     BorderColor="#faa4a3"
                     BorderWidth="1"/>
                 <Button
+                    CornerRadius="5"
                     Text="Add Date"
                     Command="{Binding CreateDateCommand}"
                     TextColor="White"
@@ -102,6 +111,7 @@
                     BorderColor="#faa4a3"
                     BorderWidth="1"/>
                 <Button
+                    CornerRadius="5"
                     Text="My Dates"
                     Command="{Binding GetDatesCommand}"
                     TextColor="White"

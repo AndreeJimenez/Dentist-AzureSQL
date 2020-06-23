@@ -45,29 +45,40 @@
                         <x:String>Sixth Item</x:String>
                     </x:Array>
                 </d:CollectionView.ItemsSource>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Padding="10">
-                            <Label 
+                <CollectionView.ItemTemplate >
+                    <DataTemplate >
+                        <StackLayout Padding="10" >
+                            <Grid BackgroundColor="#85d0b5">
+                                <Label 
                             Text="{Binding Name}" 
+                                   
+                             
                             d:Text="Name"
                             LineBreakMode="NoWrap" 
                             HorizontalOptions="Center"
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
-                            <Label 
+                                <Label 
+                             Margin="20"
+                             Padding="50"      
                             Text="{Binding Process}" 
                             d:Text="Status"
                             LineBreakMode="NoWrap"
                             HorizontalOptions="Center"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
-                            <Image
-                            HorizontalOptions="Center"
+                                <Image 
+                                   
+                                    WidthRequest="300"
+                                    
+                                   Aspect="AspectFit"
+                                    
+                            HorizontalOptions="Start"
                             HeightRequest="200"
-                            Aspect="AspectFill"
+                            
                             Source="{Binding PictureBase64, Converter={StaticResource ImageConverter}}"
                             d:Source="not_found" />
+                            </Grid>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
