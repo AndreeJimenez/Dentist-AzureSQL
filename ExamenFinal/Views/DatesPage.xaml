@@ -28,29 +28,31 @@
                     ItemsSource="{Binding DateConsult}"
                     SelectedItem="{Binding DateSelected}"
                     SelectionChangedCommand="{Binding DateSelectCommand}">
-
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid BackgroundColor="#85d0b5" Padding="30">
-                            <StackLayout  >
-                                <Label 
-                                   
+                        <StackLayout  Padding="10">
+                        <Grid BackgroundColor="#85d0b5"  >
+                            
+                                <Label   
+                                    
                                     Text="{Binding DayDate}" 
                                     d:Text="Date"
-                                    LineBreakMode="NoWrap" 
                                     HorizontalOptions="Center"
                                     Style="{DynamicResource ListItemTextStyle}" 
-                                    FontSize="16" />
+                                    FontSize="16" 
+                                    FontFamily="Italic"/>
                                 <Label
-                                    
+                                    Margin="20"
                                     Text="{Binding Cost}" 
                                     d:Text="Cost"
                                     LineBreakMode="NoWrap"
                                     HorizontalOptions="Center"
                                     Style="{DynamicResource ListItemDetailTextStyle}"
-                                    FontSize="13" />
-                            </StackLayout>
+                                    FontSize="13" 
+                                    FontFamily="Bold"/>
+                            
                         </Grid>
+                        </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

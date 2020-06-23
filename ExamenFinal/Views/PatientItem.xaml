@@ -67,14 +67,12 @@
                             HorizontalOptions="Center"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
-                                <Image 
-                                   
+                                <Image Margin="20"
+                                    
                                     WidthRequest="300"
-                                    
                                    Aspect="AspectFit"
-                                    
                             HorizontalOptions="Start"
-                            HeightRequest="200"
+                            HeightRequest="300"
                             
                             Source="{Binding PictureBase64, Converter={StaticResource ImageConverter}}"
                             d:Source="not_found" />
