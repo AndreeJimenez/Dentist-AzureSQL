@@ -129,6 +129,7 @@ namespace ExamenFinal.ViewModels
                 }
                 PatientsViewModel.GetInstance().ExecuteLoadPatientsCommand();
                 await Application.Current.MainPage.DisplayAlert("AppDentist", response.Message, "Ok");
+                await Application.Current.MainPage.Navigation.PushAsync(new PatientDetailPage(PatientSelected));
             }
 
             catch (Exception ex)
