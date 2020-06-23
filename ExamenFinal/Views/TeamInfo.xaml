@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ExamenFinal.Views.TeamInfo">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label 
+                            Text="Proyecto Final AppDentist"
+                            d:Text="Name"
+                            LineBreakMode="NoWrap" 
+                            HorizontalOptions="Center"
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+            <Label Margin="20"
+                            Text="Diego Robledo Mendoza 68092"
+                            d:Text="Name"
+                            LineBreakMode="NoWrap" 
+                            HorizontalOptions="FillAndExpand"
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" 
+                BackgroundColor="#497e76"/>
+            <Label Margin="20"
+                            Text="Kennet Artaban Lopez Lopez 68905"
+                            d:Text="Name"
+                            LineBreakMode="NoWrap" 
+                            HorizontalOptions="FillAndExpand"
+                            Style="{DynamicResource ListItemTextStyle}" 
+                    BackgroundColor="#497e76"
+                FontSize="16" />
+            <Label Margin="20"
+                            Text="Luis Andree Jimenez Bernal 68589"
+                            d:Text="Name"
+                            LineBreakMode="NoWrap" 
+                            HorizontalOptions="FillAndExpand"
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" 
+                BackgroundColor="#497e76"/>
+            <Label Margin="20"
+                            Text="Carlos Javier Gonzale Moreno 69329"
+                            d:Text="Name"
+                            LineBreakMode="NoWrap" 
+                            HorizontalOptions="FillAndExpand"
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16"
+                BackgroundColor="#497e76"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -58,7 +58,8 @@
                 HeightRequest="80"
                 Aspect="AspectFill"
                 Source="teeth.png"
-                d:Source="not_found"/>
+                d:Source="not_found"
+                 Command="{Binding TeamCommand}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -14,6 +14,8 @@ namespace ExamenFinal.ViewModels
         Command _DatesCommand;
         public Command DatesCommand => _DatesCommand ?? (_DatesCommand = new Command(DatesAction));
 
+        Command _TeamCommand;
+        public Command TeamCommand => _TeamCommand ?? (_TeamCommand = new Command(TeamAction));
         private void DatesAction()
         {
             Application.Current.MainPage.Navigation.PushAsync(new DatesPage());
@@ -22,6 +24,10 @@ namespace ExamenFinal.ViewModels
         private void PatientsAction()
         {
             Application.Current.MainPage.Navigation.PushAsync(new PatientItem());
+        }
+        private void TeamAction()
+        {
+            Application.Current.MainPage.Navigation.PushAsync(new TeamInfo());
         }
     }
 }
