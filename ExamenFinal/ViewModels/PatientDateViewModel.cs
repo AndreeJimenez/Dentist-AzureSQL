@@ -75,6 +75,28 @@ namespace ExamenFinal.ViewModels
             
         }
 
+        public static PatientDateViewModel GetInstance()
+        {
+            if (_instance == null) _instance = new PatientDateViewModel();
+            return _instance;
+        }
+
+        public Command LoadDatesCommand { get; set; }
+        public PatientDateViewModel() 
+        {
+            _instance = this;
+            Title = "Dates from Patient";
+            DateConsult = new ObservableCollection<DateConsult>();
+            LoadDatesCommand = new Command(ExecuteLoadDatesPatCommand);
+
+            ExecuteLoadDatesPatCommand();
+        }
+
+        public PatientDateViewModel(Patient patient)
+        {
+            IDPatient = patient.IdPatient;
+        }
+
         public async void ExecuteLoadDatesPatCommand()
         {
             try
@@ -85,7 +107,6 @@ namespace ExamenFinal.ViewModels
                 {
                     Debug.WriteLine("response.result: " + response.Result.ToString());
                     DateConsult = (ObservableCollection<DateConsult>)response.Result;
-                    //PatientDateViewModel.GetInstance().ExecuteLoadDatesPatCommand();
                 }
                 else
                 {

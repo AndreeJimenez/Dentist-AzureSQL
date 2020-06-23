@@ -7,22 +7,20 @@
              x:Class="ExamenFinal.Views.DatesFromPatient"
              Title="{Binding Title}">
     <ContentPage.Content>
-        
+
         <RefreshView 
         IsRefreshing="{Binding IsBusy}" 
         Command="{Binding ExecuteLoadDatesPatCommand}">
-            
-            <CollectionView                     
+            <CollectionView 
                     SelectionMode="Single"
                     ItemsSource="{Binding DateConsult}"
                     SelectedItem="{Binding DateSelected}"
                     SelectionChangedCommand="{Binding DateSelectCommand}">
 
-                <CollectionView.ItemTemplate>                    
-                    <DataTemplate >                        
-                        <StackLayout Padding="10" >
-                            
-                            <Label 
+                <CollectionView.ItemTemplate>
+                    <DataTemplate >
+                        <StackLayout Padding="10">
+                                        <Label 
                                     Text="{Binding DayDate}" 
                                     d:Text="Date"
                                     LineBreakMode="NoWrap" 
