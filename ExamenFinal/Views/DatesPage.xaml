@@ -19,6 +19,7 @@
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <RefreshView 
         IsRefreshing="{Binding IsBusy}" 
@@ -31,10 +32,8 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout  Padding="10">
-                        <Grid BackgroundColor="#85d0b5"  >
-                            
-                                <Label   
-                                    
+                            <Grid BackgroundColor="#85d0b5"  >
+                                <Label
                                     Text="{Binding DayDate}" 
                                     d:Text="Date"
                                     HorizontalOptions="Center"
@@ -50,8 +49,7 @@
                                     Style="{DynamicResource ListItemDetailTextStyle}"
                                     FontSize="13" 
                                     FontFamily="Bold"/>
-                            
-                        </Grid>
+                            </Grid>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

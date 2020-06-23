@@ -7,7 +7,6 @@
              x:Class="ExamenFinal.Views.DatesFromPatient"
              Title="{Binding Title}">
     <ContentPage.Content>
-
         <RefreshView 
         IsRefreshing="{Binding IsBusy}" 
         Command="{Binding ExecuteLoadDatesPatCommand}">
@@ -21,23 +20,22 @@
                     <DataTemplate >
                         <StackLayout Padding="10">
                             <Grid BackgroundColor="#85d0b5"  >
-                            <Label 
+                                <Label 
                                     Text="{Binding DayDate}" 
                                     d:Text="Date"
                                     LineBreakMode="NoWrap" 
                                     HorizontalOptions="Center"
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                            <Label 
-                                Margin="20"
+                                <Label 
+                                    Margin="20"
                                     Text="{Binding Cost}" 
                                     d:Text="Cost"
                                     LineBreakMode="NoWrap"
                                     HorizontalOptions="Center"
                                     Style="{DynamicResource ListItemDetailTextStyle}"
                                     FontSize="13" />
-                        
-                        </Grid>
+                            </Grid>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

@@ -6,6 +6,11 @@
              xmlns:converter="clr-namespace:ExamenFinal.Converters"
              mc:Ignorable="d"
              x:Class="ExamenFinal.Views.PatientItem">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:ImageConverter x:Key="ImageConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem
             Text="Add"
@@ -20,11 +25,7 @@
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <converter:ImageConverter x:Key="ImageConverter" />
-        </ResourceDictionary>
-    </ContentPage.Resources>
+
     <ContentPage.Content>
         <RefreshView 
         IsRefreshing="{Binding IsBusy}" 
@@ -83,6 +84,4 @@
             </CollectionView>
         </RefreshView>
     </ContentPage.Content>
-
-
 </ContentPage>

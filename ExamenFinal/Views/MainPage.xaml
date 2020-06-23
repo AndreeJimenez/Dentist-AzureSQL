@@ -6,7 +6,6 @@
              mc:Ignorable="d"
              x:Class="ExamenFinal.Views.MainPage"
              Title="Dentist"
-             
              IconImageSource="hospital.png">
     <ContentPage.Content>
         <Grid Padding="10">

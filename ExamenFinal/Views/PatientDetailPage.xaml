@@ -6,11 +6,11 @@
              mc:Ignorable="d"
              x:Class="ExamenFinal.Views.PatientDetailPage"
              xmlns:converter="clr-namespace:ExamenFinal.Converters">
-        <ContentPage.Resources>
-        <ResourceDictionary>
-            <converter:ImageConverter x:Key="ImageConverter" />
-        </ResourceDictionary>
-        </ContentPage.Resources>
+    <ContentPage.Resources>
+    <ResourceDictionary>
+        <converter:ImageConverter x:Key="ImageConverter" />
+    </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem
@@ -51,9 +51,7 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
 
-    
-        <ContentPage.Content>
-        
+    <ContentPage.Content>
         <ScrollView>
             <StackLayout>
                 <ActivityIndicator

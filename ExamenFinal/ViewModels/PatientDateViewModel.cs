@@ -73,7 +73,7 @@ namespace ExamenFinal.ViewModels
                 }
                 else
                 {
-                    await Application.Current.MainPage.DisplayAlert("Citas del Paciente", "No cuenta con ninguna cita", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Patient Dates", "You don't have an appointment", "Ok");
                     await Application.Current.MainPage.Navigation.PopAsync();
                 }
             }

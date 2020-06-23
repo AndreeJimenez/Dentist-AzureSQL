@@ -40,7 +40,6 @@ namespace ExamenFinal.Droid.Renders
 
         protected override MarkerOptions CreateMarker(Pin pin)
         {
-            //return base.CreateMarker(pin);
             var marker = new MarkerOptions();
             marker.SetPosition(new LatLng(Patient.Latitude, Patient.Longitude));
             marker.SetTitle(Patient.Name);

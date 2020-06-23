@@ -7,9 +7,7 @@
              x:Class="ExamenFinal.Views.DateDetailPage"
              Title="Date Detail">
     <ContentPage.ToolbarItems>
-
         <ToolbarItem 
-            
             Text="Add Date"
             Command="{Binding AddDateCommand}">
             <ToolbarItem.IconImageSource>
@@ -22,7 +20,6 @@
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
         <ToolbarItem 
-            
             Text="Delete"
             Command="{Binding DeleteCommand}">
             <ToolbarItem.IconImageSource>
@@ -49,6 +46,7 @@
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>

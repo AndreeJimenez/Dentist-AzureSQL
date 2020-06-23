@@ -27,7 +27,6 @@
                 <Label
                     x:Name="Name"
                     HorizontalOptions="Center" />
-                    
             </StackLayout>
         </Grid>
     </ContentPage.Content>

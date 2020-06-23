@@ -17,14 +17,12 @@ namespace ExamenFinal.Views
         PatientsViewModel vista;
         public PatientItem()
         {
-           
             InitializeComponent();
             BindingContext = vista = new PatientsViewModel(); 
         
         }
         public PatientItem(DateConsult dateToAdd)
         {
-
             InitializeComponent();
             BindingContext = new PatientsViewModel(dateToAdd);
 

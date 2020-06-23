@@ -7,46 +7,62 @@
              x:Class="ExamenFinal.Views.TeamInfo">
     <ContentPage.Content>
         <StackLayout>
-
             <Label 
-                            Text="Proyecto Final AppDentist"
-                            d:Text="Name"
-                            LineBreakMode="NoWrap" 
-                            HorizontalOptions="Center"
-                            Style="{DynamicResource ListItemTextStyle}" 
-                            FontSize="16" />
-            <Label Margin="20"
-                            Text="Diego Robledo Mendoza 68092"
-                            d:Text="Name"
-                            LineBreakMode="NoWrap" 
-                            HorizontalOptions="FillAndExpand"
-                            Style="{DynamicResource ListItemTextStyle}" 
-                            FontSize="16" 
-                BackgroundColor="#497e76"/>
-            <Label Margin="20"
-                            Text="Kennet Artaban Lopez Lopez 68905"
-                            d:Text="Name"
-                            LineBreakMode="NoWrap" 
-                            HorizontalOptions="FillAndExpand"
-                            Style="{DynamicResource ListItemTextStyle}" 
-                    BackgroundColor="#497e76"
+                Text="Final Project: Dentist App"
+                d:Text="Name"
+                Margin="7"
+                LineBreakMode="NoWrap" 
+                HorizontalOptions="Center"
+                Style="{DynamicResource ListItemTextStyle}" 
+                FontSize="20" />
+            <Label 
+                Margin="10"
+                HeightRequest="45"
+                Text="Diego Robledo Mendoza 68092"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                d:Text="Name"
+                LineBreakMode="NoWrap" 
+                HorizontalOptions="FillAndExpand"
+                Style="{DynamicResource ListItemTextStyle}" 
+                FontSize="16" 
+                BackgroundColor="#85d0b5"/>
+            <Label 
+                Margin="10"
+                HeightRequest="45"
+                Text="Kennet Artaban Lopez Lopez 68905"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"
+                d:Text="Name"
+                LineBreakMode="NoWrap" 
+                HorizontalOptions="FillAndExpand"
+                Style="{DynamicResource ListItemTextStyle}" 
+                BackgroundColor="#85d0b5"
                 FontSize="16" />
-            <Label Margin="20"
-                            Text="Luis Andree Jimenez Bernal 68589"
-                            d:Text="Name"
-                            LineBreakMode="NoWrap" 
-                            HorizontalOptions="FillAndExpand"
-                            Style="{DynamicResource ListItemTextStyle}" 
-                            FontSize="16" 
-                BackgroundColor="#497e76"/>
-            <Label Margin="20"
-                            Text="Carlos Javier Gonzale Moreno 69329"
-                            d:Text="Name"
-                            LineBreakMode="NoWrap" 
-                            HorizontalOptions="FillAndExpand"
-                            Style="{DynamicResource ListItemTextStyle}" 
-                            FontSize="16"
-                BackgroundColor="#497e76"/>
+            <Label 
+                Margin="10"
+                HeightRequest="45"
+                Text="Luis Andree Jimenez Bernal 68589"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                d:Text="Name"
+                LineBreakMode="NoWrap" 
+                HorizontalOptions="FillAndExpand"
+                Style="{DynamicResource ListItemTextStyle}" 
+                FontSize="16" 
+                BackgroundColor="#85d0b5"/>
+            <Label 
+                Margin="10"
+                HeightRequest="45"
+                Text="Carlos Javier Gonzale Moreno 69329"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                d:Text="Name"
+                LineBreakMode="NoWrap" 
+                HorizontalOptions="FillAndExpand"
+                Style="{DynamicResource ListItemTextStyle}" 
+                FontSize="16"
+                BackgroundColor="#85d0b5"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

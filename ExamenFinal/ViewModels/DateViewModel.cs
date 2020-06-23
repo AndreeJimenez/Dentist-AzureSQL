@@ -74,7 +74,7 @@ namespace ExamenFinal.ViewModels
             {
                 IsBusy = true;
                 DateConsult.Clear();
-                ApiResponse response = await new ApiService().GetDataAsync<DateConsult>("dates"); //DataStore.GetItemsAsync(true);
+                ApiResponse response = await new ApiService().GetDataAsync<DateConsult>("dates");
                 if (response != null && response.Result != null)
                 {
                     Debug.WriteLine("response.result: " + response.Result.ToString());

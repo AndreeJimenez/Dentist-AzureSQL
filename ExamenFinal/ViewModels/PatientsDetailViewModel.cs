@@ -148,7 +148,7 @@ namespace ExamenFinal.ViewModels
                 });
                 if (response == null)
                 {
-                    await Application.Current.MainPage.DisplayAlert("ExamenFinal", "Error creating driver", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("ExamenFinal", "Error creating patient", "Ok");
                     return;
                 }
                 if (!response.IsSuccess)
@@ -172,7 +172,7 @@ namespace ExamenFinal.ViewModels
                 });
                 if (response == null)
                 {
-                    await Application.Current.MainPage.DisplayAlert("ExamenFinal", "Error updating driver", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("ExamenFinal", "Error updating patient", "Ok");
                     return;
                 }
                 if (!response.IsSuccess)
@@ -194,7 +194,7 @@ namespace ExamenFinal.ViewModels
             ApiResponse response = await new ApiService().DeleteDataAsync("patient", id);
             if (response == null)
             {
-                await Application.Current.MainPage.DisplayAlert("ExamenFinal", "Error removing driver", "Ok");
+                await Application.Current.MainPage.DisplayAlert("ExamenFinal", "Error removing patient", "Ok");
                 return;
             }
             if (!response.IsSuccess)
@@ -265,7 +265,7 @@ namespace ExamenFinal.ViewModels
 
             PictureSource = ImageSource.FromStream(() =>
             {
-                var stream = file.GetStream(); //del archivo que ya obtuvo el plugin 
+                var stream = file.GetStream();
                 return stream;
             });
         }
@@ -295,7 +295,7 @@ namespace ExamenFinal.ViewModels
 
             PictureSource = ImageSource.FromStream(() =>
             {
-                var stream = file.GetStream(); //del archivo que ya obtuvo el plugin 
+                var stream = file.GetStream();
                 return stream;
             });
         }

@@ -91,8 +91,7 @@ namespace ExamenFinal.ViewModels
             try
             {
                 IsBusy = true;
-                //Patients.Clear();
-                ApiResponse response = await new ApiService().GetDataAsync<Patient>("patient"); //DataStore.GetItemsAsync(true);
+                ApiResponse response = await new ApiService().GetDataAsync<Patient>("patient");
                 if (response != null && response.Result != null )
                 {
                     Debug.WriteLine("response.result: " + response.Result.ToString());

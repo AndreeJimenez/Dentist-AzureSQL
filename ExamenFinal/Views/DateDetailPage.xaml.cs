@@ -1,11 +1,5 @@
 ﻿using ExamenFinal.Models;
 using ExamenFinal.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,10 +21,5 @@ namespace ExamenFinal.Views
 
             BindingContext = new DateDetailViewModel(dateConsult);
         }
-
-        /*private void Picker_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }*/
     }
 }
