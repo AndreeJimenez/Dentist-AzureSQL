@@ -49,7 +49,7 @@ namespace ExamenFinal.ViewModels
         }
 
         public DateDetailViewModel() {
-            DayDate = DateTime.Today;
+            DayDate = DateTime.Now;
         }
 
         public DateDetailViewModel(DateConsult date)

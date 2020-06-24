@@ -54,10 +54,10 @@
             <ImageButton 
                 Grid.Row="2"
                 Grid.ColumnSpan="2"
-                Margin="20"
+                Margin="30"
                 HorizontalOptions="Center"
                 VerticalOptions="End"
-                HeightRequest="200"
+                HeightRequest="130"
                 Aspect="AspectFill"
                 Source="teeth.png"
                 d:Source="not_found"
